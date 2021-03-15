@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using FFLogsAPI.Models.Helpers;
+using FFLogs.Net.Models.Helpers;
 using NUnit.Framework;
 
-namespace FFLogsAPI.Tests
+namespace FFLogs.Net.Tests
 {
     public class FFLogsReportsUnitTest : BaseUnitTest
     {

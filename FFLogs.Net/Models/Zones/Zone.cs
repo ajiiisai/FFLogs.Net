@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FFLogsAPI.Models.Zones
+namespace FFLogs.Net.Models.Zones
 {
     public partial class Zone
     {

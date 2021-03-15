@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FFLogsAPI.Models.Parses
+namespace FFLogs.Net.Models.Parses
 {
     public partial class Parses
     {

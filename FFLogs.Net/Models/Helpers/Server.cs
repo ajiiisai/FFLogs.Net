@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FFLogsAPI.Models.Helpers
+﻿namespace FFLogs.Net.Models.Helpers
 {
     public class ServerObject
     {

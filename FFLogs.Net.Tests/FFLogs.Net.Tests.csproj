@@ -4,6 +4,8 @@
         <TargetFramework>net5.0</TargetFramework>
 
         <IsPackable>false</IsPackable>
+
+        <AssemblyName>FFLogs.Net.Tests</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FFLogsAPI\FFLogsAPI.csproj" />
+      <ProjectReference Include="..\FFLogs.Net\FFLogs.Net.csproj" />
     </ItemGroup>
 
 </Project>

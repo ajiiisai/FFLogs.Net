@@ -3,14 +3,14 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using FFLogsAPI.Models.Classes;
-using FFLogsAPI.Models.Helpers;
-using FFLogsAPI.Models.Parses;
-using FFLogsAPI.Models.Rankings;
-using FFLogsAPI.Models.Reports;
-using FFLogsAPI.Models.Zones;
+using FFLogs.Net.Models.Classes;
+using FFLogs.Net.Models.Helpers;
+using FFLogs.Net.Models.Parses;
+using FFLogs.Net.Models.Rankings;
+using FFLogs.Net.Models.Reports;
+using FFLogs.Net.Models.Zones;
 
-namespace FFLogsAPI
+namespace FFLogs.Net
 {
     public class FFLogsClient : IDisposable
     {
@@ -79,12 +79,12 @@ namespace FFLogsAPI
         {
             try
             {
-                var json = await _client.GetStringAsync(rootUrl);
+                string json = await _client.GetStringAsync(rootUrl);
                 return JsonSerializer.Deserialize<TOutput>(json);
             }
             catch (Exception e)
             {
-                throw e;
+                throw;
             }
         }
         
@@ -92,13 +92,13 @@ namespace FFLogsAPI
         {
             try
             {
-                var json = await _client.GetStringAsync(rootUrl);
-                return JsonSerializer.Deserialize<Class[]>(json).FirstOrDefault()?.Jobs;
+                string json = await _client.GetStringAsync(rootUrl);
+                return (JsonSerializer.Deserialize<Class[]>(json) ?? Array.Empty<Class>()).FirstOrDefault()?.Jobs;
                 
             }
             catch (Exception e)
             {
-                throw e;
+                throw;
             }
         }
 
@@ -108,7 +108,7 @@ namespace FFLogsAPI
 
         public virtual Task<Zone[]> GetZonesAsync()
         {
-            var url = GetZonesUrl();
+            string url = GetZonesUrl();
             return GetData<Zone[]>(url);
         }
 
@@ -118,7 +118,7 @@ namespace FFLogsAPI
 
         public virtual Task<Job[]> GetJobsAsync()
         {
-            var url = GetJobsUrl();
+            string url = GetJobsUrl();
             return GetJobData<Class[]>(url);
         }
 
@@ -128,13 +128,13 @@ namespace FFLogsAPI
 
         public virtual Task<EncounterRankings> GetEncounterRankingsAsync(int encounterId)
         {
-            var url = GetEncounterRankingsUrl(encounterId);
+            string url = GetEncounterRankingsUrl(encounterId);
             return GetData<EncounterRankings>(url);
         }
         
         public virtual Task<CharacterRankings[]> GetCharacterRankingsAsync(string characterName, ServerObject server)
         {
-            var url = GetCharacterRankingsUrl(characterName, server.ServerName, server.ServerRegion);
+            string url = GetCharacterRankingsUrl(characterName, server.ServerName, server.ServerRegion);
             return GetData<CharacterRankings[]>(url);
         }
 
@@ -144,7 +144,7 @@ namespace FFLogsAPI
 
         public virtual Task<Parses[]> GetCharacterParsesAsync(string characterName, ServerObject server)
         {
-            var url = GetCharacterParsesUrl(characterName, server.ServerName, server.ServerRegion);
+            string url = GetCharacterParsesUrl(characterName, server.ServerName, server.ServerRegion);
             return GetData<Parses[]>(url);
         }
 
@@ -154,13 +154,13 @@ namespace FFLogsAPI
 
         public virtual Task<Reports[]> GetGuildReportsAsync(string guildName, ServerObject server)
         {
-            var url = GetGuildReportsUrl(guildName, server.ServerName, server.ServerRegion);
+            string url = GetGuildReportsUrl(guildName, server.ServerName, server.ServerRegion);
             return GetData<Reports[]>(url);
         }
         
         public virtual Task<Reports[]> GetUserReportsAsync(string userName)
         {
-            var url = GetUserReportsUrl(userName);
+            string url = GetUserReportsUrl(userName);
             return GetData<Reports[]>(url);
         }
 

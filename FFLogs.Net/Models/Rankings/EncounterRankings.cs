@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FFLogsAPI.Models.Rankings
+namespace FFLogs.Net.Models.Rankings
 {
     public partial class EncounterRankings
     {

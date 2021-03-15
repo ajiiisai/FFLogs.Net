@@ -1,8 +1,7 @@
 using System;
-using System.Linq;
 using NUnit.Framework;
 
-namespace FFLogsAPI.Tests
+namespace FFLogs.Net.Tests
 {
     [TestFixture]
     public class BaseUnitTest

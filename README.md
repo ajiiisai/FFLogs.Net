@@ -1,12 +1,12 @@
 # FFLogsAPI
-[![Build, test and publish](https://github.com/Shiroifuyu/FFLogsAPI/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/Shiroifuyu/FFLogsAPI/actions/workflows/dotnet.yml)
+[![Build, test and publish](https://github.com/Shiroifuyu/FFLogsAPI/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Shiroifuyu/FFLogsAPI/actions/workflows/dotnet.yml)
 
-A WIP FFLogs API implementation for .NET
+A WIP FFLogs API implementation for .NET 5
 
 ## Usage
 Generate client:
 ```csharp
-var client = new FFLogsClient("FFLogsAPIKey");
+var client = new FFLogsClient("FFLOGS_API_KEY");
 ```
 You can generate your API key [here](https://www.fflogs.com/profile).
 

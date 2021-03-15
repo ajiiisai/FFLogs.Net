@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace FFLogsAPI.Tests
+namespace FFLogs.Net.Tests
 {
     public class FFLogsJobsUnitTest : BaseUnitTest
     {
