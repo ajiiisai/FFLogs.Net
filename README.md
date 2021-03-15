@@ -1,5 +1,5 @@
 # FFLogsAPI
-[![Build, test and publish](https://github.com/Shiroifuyu/FFLogsAPI/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Shiroifuyu/FFLogsAPI/actions/workflows/dotnet.yml)
+[![Build, test and publish](https://github.com/Shiroifuyu/FFLogsAPI/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/Shiroifuyu/FFLogsAPI/actions/workflows/dotnet.yml)
 
 A WIP FFLogs API implementation for .NET
 
