@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFLogsAPI", "FFLogsAPI\FFLogsAPI.csproj", "{9E764E72-EEE3-40AD-A200-D8D44353F93F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFLogsAPI.Tests", "FFLogsAPI.Tests\FFLogsAPI.Tests.csproj", "{FF955927-C262-4ECF-981C-0E2AB36FD11E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E764E72-EEE3-40AD-A200-D8D44353F93F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E764E72-EEE3-40AD-A200-D8D44353F93F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E764E72-EEE3-40AD-A200-D8D44353F93F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E764E72-EEE3-40AD-A200-D8D44353F93F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF955927-C262-4ECF-981C-0E2AB36FD11E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF955927-C262-4ECF-981C-0E2AB36FD11E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF955927-C262-4ECF-981C-0E2AB36FD11E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF955927-C262-4ECF-981C-0E2AB36FD11E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
