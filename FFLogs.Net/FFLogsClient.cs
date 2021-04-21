@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Web;
 using FFLogs.Net.Models.Classes;
 using FFLogs.Net.Models.Helpers;
 using FFLogs.Net.Models.Parses;
@@ -32,6 +33,21 @@ namespace FFLogs.Net
 
         protected virtual string ApiRootUrl => "https://www.fflogs.com:443/v1";
 
+        private string GetQuery<T>(T options)
+        {
+            var properties = typeof(T).GetProperties();
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            foreach(var i in properties)
+            {
+                var value = i.GetValue(options);
+                if (value!= null)
+                {
+                    query[i.Name] = value.ToString();
+                }
+                
+            }
+            return query.ToString();
+        }
         #endregion
 
         #region Data urls
@@ -146,6 +162,11 @@ namespace FFLogs.Net
         {
             string url = GetCharacterParsesUrl(characterName, server.ServerName, server.ServerRegion);
             return GetData<Parses[]>(url);
+        }
+        public virtual Task<Parses[]> GetCharacterParsesAsync(string characterName, ServerObject server, ParsesOptions options)
+        {
+            string url = GetCharacterParsesUrl(characterName, server.ServerName, server.ServerRegion);
+            return GetData<Parses[]>($"{url}&{GetQuery(options)}");
         }
 
         #endregion
