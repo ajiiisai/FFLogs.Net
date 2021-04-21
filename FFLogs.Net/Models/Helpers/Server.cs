@@ -29,6 +29,7 @@
                 public static ServerObject Zodiark = new ServerObject() { ServerName= "Zodiark", ServerRegion= "eu" };
             }
         }
+
     }
     
     public static class NorthAmerica
@@ -116,4 +117,43 @@
             public static ServerObject Titan = new ServerObject() { ServerName = "Titan", ServerRegion = "jp"};
         }
     }
+
+    public static class China
+    {
+        public static class LuXingNiao
+        {
+            public static ServerObject YuZhouHeYin = new ServerObject() { ServerName = "宇宙和音", ServerRegion = "cn" };
+            public static ServerObject HongYuHai = new ServerObject() { ServerName = "红玉海", ServerRegion = "cn" };
+            public static ServerObject WoXianXiRan = new ServerObject() { ServerName = "沃仙曦染", ServerRegion = "cn" };
+            public static ServerObject MengYaChi = new ServerObject() { ServerName = "萌芽池", ServerRegion = "cn" };
+            public static ServerObject LaNuoXiYa = new ServerObject() { ServerName = "拉诺西亚", ServerRegion = "cn" };
+            public static ServerObject ChenXiWangZuo = new ServerObject() { ServerName = "晨曦王座", ServerRegion = "cn" };
+            public static ServerObject HuanYingQunDao = new ServerObject() { ServerName = "幻影群岛", ServerRegion = "cn" };
+            public static ServerObject ShenYiZhiDi = new ServerObject() { ServerName = "神意之地", ServerRegion = "cn" };
+        }
+
+        public static class MoGuLi
+        {
+            public static ServerObject ChaoFengTing = new ServerObject() { ServerName = "潮风亭", ServerRegion = "cn" };
+            public static ServerObject BaiYinXiang = new ServerObject() { ServerName = "白银乡", ServerRegion = "cn" };
+            public static ServerObject FoXiaoZhiJian = new ServerObject() { ServerName = "拂晓之间", ServerRegion = "cn" };
+            public static ServerObject BaiJinHuanXiang = new ServerObject() { ServerName = "白金幻象", ServerRegion = "cn" };
+            public static ServerObject ShenQuanHen = new ServerObject() { ServerName = "神拳痕", ServerRegion = "cn" };
+            public static ServerObject LvRenZhanQiao = new ServerObject() { ServerName = "旅人栈桥", ServerRegion = "cn" };
+            public static ServerObject LongChaoShenDian = new ServerObject() { ServerName = "龙巢神殿", ServerRegion = "cn" };
+            public static ServerObject MengYuBaoJing = new ServerObject() { ServerName = "梦羽宝境", ServerRegion = "cn" };
+        }
+
+        public static class MaoXiaoPang
+        {
+            public static ServerObject ZiShuiZhanQiao = new ServerObject() { ServerName = "紫水栈桥", ServerRegion = "cn" };
+            public static ServerObject YanXia = new ServerObject() { ServerName = "延夏", ServerRegion = "cn" };
+            public static ServerObject JingYuZhuangYuan = new ServerObject() { ServerName = "静语庄园", ServerRegion = "cn" };
+            public static ServerObject MoDuNa = new ServerObject() { ServerName = "摩杜纳", ServerRegion = "cn" };
+            public static ServerObject HaiMaoChaWu = new ServerObject() { ServerName = "海猫茶屋", ServerRegion = "cn" };
+            public static ServerObject RouFengHaiWan = new ServerObject() { ServerName = "柔风海湾", ServerRegion = "cn" };
+            public static ServerObject HuPoYuan = new ServerObject() { ServerName = "琥珀原", ServerRegion = "cn" };
+        }
+    }
+
 }
