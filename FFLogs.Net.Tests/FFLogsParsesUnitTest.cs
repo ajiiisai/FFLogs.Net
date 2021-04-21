@@ -16,5 +16,14 @@ namespace FFLogs.Net.Tests
             Assert.AreEqual(420577, result.FirstOrDefault()?.CharacterId);
             Assert.AreEqual("Ragnarok", result.FirstOrDefault()?.Server);
         }
+        [Test]
+        public async Task GetCharacterParsesAsyncWithOptions()
+        {
+            var result = await FFLogsClient.GetCharacterParsesAsync("夜叉散华", China.MaoXiaoPang.ZiShuiZhanQiao,new Models.Parses.ParsesOptions {  Zone = "37"});
+
+            Assert.AreEqual("夜叉散华", result.FirstOrDefault()?.CharacterName);
+            Assert.AreEqual(13630211, result.FirstOrDefault()?.CharacterId);
+            Assert.AreEqual("紫水栈桥", result.FirstOrDefault()?.Server);
+        }
     }
 }
