@@ -42,7 +42,7 @@ namespace FFLogs.Net
                 var value = i.GetValue(options);
                 if (value!= null)
                 {
-                    query[i.Name] = value.ToString();
+                    query[i.Name.ToLower()] = value.ToString();
                 }
                 
             }
