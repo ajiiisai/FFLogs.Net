@@ -5,31 +5,27 @@
         public string ServerName { get; set;}
         public string ServerRegion { get; set;}
     }
-    public static class Server
+    public static class Europe
     {
-        public static class Europe
+        public static class Chaos
         {
-            public static class Chaos
-            {
-                public static ServerObject Cerberus = new ServerObject() { ServerName = "Cerberus", ServerRegion = "eu"};
-                public static ServerObject Louisoix = new ServerObject() { ServerName = "Louisoix", ServerRegion = "eu" };
-                public static ServerObject Moogle = new ServerObject() { ServerName= "Moogle", ServerRegion = "eu" };
-                public static ServerObject Omega = new ServerObject() { ServerName = "Omega", ServerRegion = "eu" };
-                public static ServerObject Ragnarok = new ServerObject(){ ServerName = "Ragnarok", ServerRegion ="eu" };
-                public static ServerObject Spriggan = new ServerObject() { ServerName= "Spriggan", ServerRegion= "eu" };
-            }
-            
-            public static class Light
-            {
-                public static ServerObject Lich = new ServerObject() { ServerName = "Lich", ServerRegion = "eu"};
-                public static ServerObject Odin = new ServerObject() { ServerName = "Odin", ServerRegion = "eu" };
-                public static ServerObject Phoenix = new ServerObject() { ServerName= "Phoenix", ServerRegion = "eu" };
-                public static ServerObject Shiva = new ServerObject() { ServerName = "Shiva", ServerRegion = "eu" };
-                public static ServerObject Twintania = new ServerObject(){ ServerName = "Twintania", ServerRegion ="eu" };
-                public static ServerObject Zodiark = new ServerObject() { ServerName= "Zodiark", ServerRegion= "eu" };
-            }
+            public static ServerObject Cerberus = new ServerObject() { ServerName = "Cerberus", ServerRegion = "eu"};
+            public static ServerObject Louisoix = new ServerObject() { ServerName = "Louisoix", ServerRegion = "eu" };
+            public static ServerObject Moogle = new ServerObject() { ServerName= "Moogle", ServerRegion = "eu" };
+            public static ServerObject Omega = new ServerObject() { ServerName = "Omega", ServerRegion = "eu" };
+            public static ServerObject Ragnarok = new ServerObject(){ ServerName = "Ragnarok", ServerRegion ="eu" };
+            public static ServerObject Spriggan = new ServerObject() { ServerName= "Spriggan", ServerRegion= "eu" };
         }
-
+            
+        public static class Light
+        {
+            public static ServerObject Lich = new ServerObject() { ServerName = "Lich", ServerRegion = "eu"};
+            public static ServerObject Odin = new ServerObject() { ServerName = "Odin", ServerRegion = "eu" };
+            public static ServerObject Phoenix = new ServerObject() { ServerName= "Phoenix", ServerRegion = "eu" };
+            public static ServerObject Shiva = new ServerObject() { ServerName = "Shiva", ServerRegion = "eu" };
+            public static ServerObject Twintania = new ServerObject(){ ServerName = "Twintania", ServerRegion ="eu" };
+            public static ServerObject Zodiark = new ServerObject() { ServerName= "Zodiark", ServerRegion= "eu" };
+        }
     }
     
     public static class NorthAmerica

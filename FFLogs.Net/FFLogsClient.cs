@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Web;
@@ -15,10 +17,13 @@ namespace FFLogs.Net
 {
     public class FFLogsClient : IDisposable
     {
+        
+        
+        public void Dispose() => _client.Dispose();
 
         #region Consturctor
 
-        private string _apiKey;
+        private readonly string _apiKey;
         public FFLogsClient(string apiKey) => _apiKey = apiKey;
 
         #endregion
@@ -33,11 +38,11 @@ namespace FFLogs.Net
 
         protected virtual string ApiRootUrl => "https://www.fflogs.com:443/v1";
 
-        private string GetQuery<T>(T options)
+        private static string GetQuery<T>(T options)
         {
-            var properties = typeof(T).GetProperties();
-            var query = HttpUtility.ParseQueryString(string.Empty);
-            foreach(var i in properties)
+            PropertyInfo[] properties = typeof(T).GetProperties();
+            NameValueCollection query = HttpUtility.ParseQueryString(string.Empty);
+            foreach(PropertyInfo i in properties)
             {
                 var value = i.GetValue(options);
                 if (value!= null)
@@ -93,29 +98,14 @@ namespace FFLogs.Net
 
         protected virtual async Task<TOutput> GetData<TOutput>(string rootUrl)
         {
-            try
-            {
-                string json = await _client.GetStringAsync(rootUrl);
-                return JsonSerializer.Deserialize<TOutput>(json);
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
+            string json = await _client.GetStringAsync(rootUrl);
+            return JsonSerializer.Deserialize<TOutput>(json);
         }
         
         protected virtual async Task<Job[]> GetJobData<TOutput>(string rootUrl)
         {
-            try
-            {
-                string json = await _client.GetStringAsync(rootUrl);
-                return (JsonSerializer.Deserialize<Class[]>(json) ?? Array.Empty<Class>()).FirstOrDefault()?.Jobs;
-                
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
+            string json = await _client.GetStringAsync(rootUrl);
+            return (JsonSerializer.Deserialize<Class[]>(json) ?? Array.Empty<Class>()).FirstOrDefault()?.Jobs;
         }
 
         #endregion
@@ -186,11 +176,5 @@ namespace FFLogs.Net
         }
 
         #endregion
-        
-
-        public void Dispose()
-        {
-            _client.Dispose();
-        }
     }
 }

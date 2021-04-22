@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using FFLogs.Net.Models.Helpers;
+using FFLogs.Net.Models.Rankings;
 using NUnit.Framework;
 
 namespace FFLogs.Net.Tests
@@ -10,7 +11,7 @@ namespace FFLogs.Net.Tests
         [Test]
         public async Task GetEncounterRankingsAsync()
         {
-            var result = await FFLogsClient.GetEncounterRankingsAsync(69);
+            EncounterRankings result = await FFLogsClient.GetEncounterRankingsAsync(69);
             
             Assert.AreEqual(5.2, result.Rankings.FirstOrDefault()?.Patch);
         }
@@ -18,11 +19,11 @@ namespace FFLogs.Net.Tests
         [Test]
         public async Task GetCharacterRankingsAsync()
         {
-            var result = await FFLogsClient.GetCharacterRankingsAsync("Ame Aghalair", Server.Europe.Chaos.Ragnarok);
+            CharacterRankings[] result = await FFLogsClient.GetCharacterRankingsAsync("Ferro Maljin", NorthAmerica.Primal.Excalibur);
             
-            Assert.AreEqual("Ame Aghalair", result.FirstOrDefault()?.CharacterName);
-            Assert.AreEqual(420577, result.FirstOrDefault()?.CharacterId);
-            Assert.AreEqual("Ragnarok", result.FirstOrDefault()?.Server);
+            Assert.AreEqual("Ferro Maljin", result.FirstOrDefault()?.CharacterName);
+            Assert.AreEqual(11455076, result.FirstOrDefault()?.CharacterId);
+            Assert.AreEqual("Excalibur", result.FirstOrDefault()?.Server);
         }
     }
 }

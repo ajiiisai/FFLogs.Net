@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using FFLogs.Net.Models.Helpers;
+using FFLogs.Net.Models.Reports;
 using NUnit.Framework;
 
 namespace FFLogs.Net.Tests
@@ -10,7 +11,7 @@ namespace FFLogs.Net.Tests
         [Test]
         public async Task GetGuildReportsAsync()
         {
-            var result = await FFLogsClient.GetGuildReportsAsync("EXPLOSION MAGIC", Server.Europe.Chaos.Cerberus);
+            Reports[] result = await FFLogsClient.GetGuildReportsAsync("EXPLOSION MAGIC", Europe.Chaos.Cerberus);
             
             Assert.AreEqual("Eden's Verse", result.FirstOrDefault(x =>x.Id == "HVxTkRN9yhvXZ1rd")?.Title);
             Assert.AreEqual("kriers", result.FirstOrDefault(x =>x.Id == "HVxTkRN9yhvXZ1rd")?.Owner);

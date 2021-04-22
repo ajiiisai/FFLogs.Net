@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using FFLogs.Net.Models.Classes;
 using NUnit.Framework;
 
 namespace FFLogs.Net.Tests
@@ -9,7 +10,7 @@ namespace FFLogs.Net.Tests
         [Test]
         public async Task GetJobsAsync()
         {
-            var result = await FFLogsClient.GetJobsAsync();
+            Job[] result = await FFLogsClient.GetJobsAsync();
             Assert.AreEqual(1, result.FirstOrDefault()?.Id);
             Assert.AreEqual(3, result.FirstOrDefault(x=> x.Name == "Black Mage")?.Id);
             Assert.AreEqual("Astrologian", result.FirstOrDefault()?.Name);

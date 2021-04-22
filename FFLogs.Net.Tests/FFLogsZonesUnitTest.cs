@@ -1,6 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using FFLogs.Net.Models.Zones;
 using NUnit.Framework;
 
 namespace FFLogs.Net.Tests
@@ -10,7 +10,7 @@ namespace FFLogs.Net.Tests
         [Test]
         public async Task GetZonesAsync()
         {
-            var result = await FFLogsClient.GetZonesAsync();
+            Zone[] result = await FFLogsClient.GetZonesAsync();
             
             Assert.AreEqual("Eden's Verse", result
                 .FirstOrDefault(x=>x.Id == 33)?.Name);

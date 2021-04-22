@@ -2,28 +2,23 @@
 
 namespace FFLogs.Net.Models.Zones
 {
-    public partial class Zone
+    public class Zone
     {
         [JsonPropertyName("id")] public int Id { get; set; }
-        
         [JsonPropertyName("name")] public string Name { get; set; }
-
         [JsonPropertyName("frozen")] public bool Frozen { get; set; }
-
         [JsonPropertyName("encounters")] public Encounter[] Encounters { get; set; }
-
         [JsonPropertyName("brackets")] public Bracket Brackets { get; set; }
-
         [JsonPropertyName("partitions")] public Partition[] Partitions { get; set; }
     }
 
-    public partial class Encounter
+    public class Encounter
     {
         [JsonPropertyName("id")] public int Id { get; set; }
         [JsonPropertyName("name")] public string Name { get; set; }
     }
     
-    public partial class Bracket
+    public class Bracket
     {
         [JsonPropertyName("min")] public double Min { get; set; }
         [JsonPropertyName("max")] public double Max { get; set; }
@@ -31,7 +26,7 @@ namespace FFLogs.Net.Models.Zones
         [JsonPropertyName("type")] public string Type { get; set; }
     }
 
-    public partial class Partition
+    public class Partition
     {
         [JsonPropertyName("name")] public string Name { get; set; }
         [JsonPropertyName("compact")] public string Compact { get; set; }
