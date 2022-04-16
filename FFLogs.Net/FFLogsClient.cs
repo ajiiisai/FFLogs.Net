@@ -143,7 +143,11 @@ namespace FFLogs.Net
             string url = GetCharacterRankingsUrl(characterName, server.ServerName, server.ServerRegion);
             return GetData<CharacterRankings[]>(url);
         }
-
+        public virtual Task<CharacterRankings[]> GetCharacterRankingsAsync(string characterName, ServerObject server,RankingOptions options)
+        {
+            string url = GetCharacterRankingsUrl(characterName, server.ServerName, server.ServerRegion);
+            return GetData<CharacterRankings[]>($"{url}&{GetQuery(options)}");
+        }
         #endregion
 
         #region Parses
