@@ -25,5 +25,10 @@ namespace FFLogs.Net.Tests
             Assert.AreEqual("Dungeons (Endgame)", result.FirstOrDefault(x =>x.Zone == 27)?.Title);
             Assert.AreEqual("aghanim", result.FirstOrDefault()?.Owner);
         }
+        [Test]
+        public async Task GetReportsTablesAsync()
+        {
+            var result = await FFLogsClient.GetReportsTables("summary", "a1mXWRfqYhzxPdCb",new ReportsTablesOptions(){ start = 1051410 ,end = 1637165 });
+        }
     }
 }
