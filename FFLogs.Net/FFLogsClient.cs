@@ -24,19 +24,24 @@ namespace FFLogs.Net
         #region Consturctor
 
         private readonly string _apiKey;
-        public FFLogsClient(string apiKey) => _apiKey = apiKey;
+        private readonly string _apiRootUrl;
+
+        public FFLogsClient(string apiKey,string ApiRootUrl = "https://www.fflogs.com:443/v1") {
+            _apiKey = apiKey;
+            _apiRootUrl = ApiRootUrl;
+        }
 
         #endregion
         
         #region Client
         
         private readonly HttpClient _client = new HttpClient();
-        
+
         #endregion
 
         #region Urls
 
-        protected virtual string ApiRootUrl => "https://www.fflogs.com:443/v1";
+        protected virtual string ApiRootUrl => _apiRootUrl;
 
         private static string GetQuery<T>(T options)
         {
