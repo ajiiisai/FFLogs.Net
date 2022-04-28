@@ -12,6 +12,7 @@ using FFLogs.Net.Models.Parses;
 using FFLogs.Net.Models.Rankings;
 using FFLogs.Net.Models.Reports;
 using FFLogs.Net.Models.Zones;
+using FFLogs.Net.Models.Report;
 
 namespace FFLogs.Net
 {
@@ -187,10 +188,15 @@ namespace FFLogs.Net
         #endregion
 
         #region Report
-        public virtual Task<ReportsTables> GetReportsTables(string view, string code, ReportsTablesOptions options)
+        public virtual Task<ReportTables> GetReportsTables(string view, string code, ReportsTablesOptions options)
         {
             string url = $"{ApiRootUrl}/report/tables/{view}/{code}/?api_key={_apiKey}&{GetQuery(options)}";
-            return GetData<ReportsTables>(url);
+            return GetData<ReportTables>(url);
+        }
+        public virtual Task<ReportFights> GetReportsFights(string code,bool translate = false)
+        {
+            string url = $"{ApiRootUrl}/report/fights/{code}/?api_key={_apiKey}&translate={translate}";
+            return GetData<ReportFights>(url);
         }
         #endregion
     }

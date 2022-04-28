@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace FFLogs.Net.Models.Reports;
-public class ReportsTables
+namespace FFLogs.Net.Models.Report;
+public class ReportTables
 {
     [JsonPropertyName("totalTime")]
     public int TotalTime { get; set; }

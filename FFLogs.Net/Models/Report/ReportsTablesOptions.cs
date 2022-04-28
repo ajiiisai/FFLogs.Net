@@ -1,4 +1,4 @@
-namespace FFLogs.Net.Models.Reports;
+namespace FFLogs.Net.Models.Report;
 
 public class ReportsTablesOptions
 {
