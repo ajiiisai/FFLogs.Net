@@ -189,7 +189,7 @@ namespace FFLogs.Net
         #region Report
         public virtual Task<ReportsTables> GetReportsTables(string view, string code, ReportsTablesOptions options)
         {
-            string url = $"{ApiRootUrl}/report/table/{code}/{view}/?api_key={_apiKey}&{GetQuery(options)}";
+            string url = $"{ApiRootUrl}/report/tables/{view}/{code}/?api_key={_apiKey}&{GetQuery(options)}";
             return GetData<ReportsTables>(url);
         }
         #endregion
