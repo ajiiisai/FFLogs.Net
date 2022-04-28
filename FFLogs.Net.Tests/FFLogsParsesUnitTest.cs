@@ -22,7 +22,7 @@ namespace FFLogs.Net.Tests
         {
             Parses[] result = await FFLogsClient.GetCharacterParsesAsync("夜叉散华", China.MaoXiaoPang.ZiShuiZhanQiao, new ParsesOptions { Zone = "37"});
 
-            Assert.AreEqual("夜叉散华", result.FirstOrDefault()?.CharacterName);
+            Assert.AreEqual("家康", result.FirstOrDefault()?.CharacterName);
             Assert.AreEqual(13630211, result.FirstOrDefault()?.CharacterId);
             Assert.AreEqual("紫水栈桥", result.FirstOrDefault()?.Server);
         }
