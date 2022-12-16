@@ -12,6 +12,7 @@ using FFLogs.Net.Models.Parses;
 using FFLogs.Net.Models.Rankings;
 using FFLogs.Net.Models.Reports;
 using FFLogs.Net.Models.Zones;
+using FFLogs.Net.Models.Report;
 
 namespace FFLogs.Net
 {
@@ -24,19 +25,24 @@ namespace FFLogs.Net
         #region Consturctor
 
         private readonly string _apiKey;
-        public FFLogsClient(string apiKey) => _apiKey = apiKey;
+        private readonly string _apiRootUrl;
+
+        public FFLogsClient(string apiKey,string ApiRootUrl = "https://www.fflogs.com:443/v1") {
+            _apiKey = apiKey;
+            _apiRootUrl = ApiRootUrl;
+        }
 
         #endregion
         
         #region Client
         
         private readonly HttpClient _client = new HttpClient();
-        
+
         #endregion
 
         #region Urls
 
-        protected virtual string ApiRootUrl => "https://www.fflogs.com:443/v1";
+        protected virtual string ApiRootUrl => _apiRootUrl;
 
         private static string GetQuery<T>(T options)
         {
@@ -143,7 +149,11 @@ namespace FFLogs.Net
             string url = GetCharacterRankingsUrl(characterName, server.ServerName, server.ServerRegion);
             return GetData<CharacterRankings[]>(url);
         }
-
+        public virtual Task<CharacterRankings[]> GetCharacterRankingsAsync(string characterName, ServerObject server,RankingOptions options)
+        {
+            string url = GetCharacterRankingsUrl(characterName, server.ServerName, server.ServerRegion);
+            return GetData<CharacterRankings[]>($"{url}&{GetQuery(options)}");
+        }
         #endregion
 
         #region Parses
@@ -175,6 +185,19 @@ namespace FFLogs.Net
             return GetData<Reports[]>(url);
         }
 
+        #endregion
+
+        #region Report
+        public virtual Task<ReportTables> GetReportsTables(string view, string code, ReportsTablesOptions options)
+        {
+            string url = $"{ApiRootUrl}/report/tables/{view}/{code}/?api_key={_apiKey}&{GetQuery(options)}";
+            return GetData<ReportTables>(url);
+        }
+        public virtual Task<ReportFights> GetReportsFights(string code,bool translate = false)
+        {
+            string url = $"{ApiRootUrl}/report/fights/{code}/?api_key={_apiKey}&translate={translate}";
+            return GetData<ReportFights>(url);
+        }
         #endregion
     }
 }
